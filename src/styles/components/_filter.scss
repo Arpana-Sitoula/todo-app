@@ -9,12 +9,12 @@
     border-radius:none;
   }
   .add {
+    border: none;
     height: 40px;
     width: 40px;
     background-color: $--lightblue-secondary;
     color: white;
-    font-size: 42px;
-    font-weight: lighter;
+    font-size: 32px;
     @extend .center-div;
     cursor: pointer;
   }
