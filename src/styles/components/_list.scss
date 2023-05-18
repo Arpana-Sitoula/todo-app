@@ -1,0 +1,12 @@
+.transparent_input {
+    border-style: none;
+    background-color: transparent;
+}
+.completed {
+    @extend .transparent_input;
+    text-decoration: line-through;
+    color: green;
+}
+.incomplete{
+    @extend .transparent_input;
+}
