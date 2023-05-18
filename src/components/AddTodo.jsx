@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import uuid from 'react-uuid';
 
-const AddTodo = ({setTodos}) => {
+const AddTodo = ({setTodos,setFilter,filter}) => {
     const [inputs, setInput] = useState("");
    
 
@@ -19,6 +19,7 @@ const AddTodo = ({setTodos}) => {
         });
         setInput("");
     }
+    //console.log(filter);
 
     return (
         <div className='center-div'>
@@ -28,9 +29,9 @@ const AddTodo = ({setTodos}) => {
             <div className="dropdown">
                 <button className="dropbtn">Filter</button>
                 <div className="dropdown-content">
-                    <option >All</option>
-                    <option >Completed</option>
-                    <option >To do</option>
+                    <option value="all" onClick={(e)=> {setFilter(e.target.value)}}>All</option>
+                    <option value="completed" onClick={(e)=> {setFilter(e.target.value)}}>Completed</option>
+                    <option value="incomplete" onClick={(e)=> {setFilter(e.target.value)}}>Todo</option>
                 </div>
             </div>
             </form>
