@@ -25,9 +25,9 @@ const AddTodo = ({setTodos}) => {
             <form className='filter' onSubmit={handleAdd}>
             <input type='text' value={inputs} onChange={(e)=> setInput(e.target.value)}/>
             <button type='submit' className='add'>+</button>
-            <div class="dropdown">
-                <button class="dropbtn">Filter</button>
-                <div class="dropdown-content">
+            <div className="dropdown">
+                <button className="dropbtn">Filter</button>
+                <div className="dropdown-content">
                     <option >All</option>
                     <option >Completed</option>
                     <option >To do</option>

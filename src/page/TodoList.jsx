@@ -9,7 +9,7 @@ const TodoList = () => {
     <div>
         <h1>Todo List</h1>
         <AddTodo todos={todos} setTodos={setTodos}/>
-        <List todos={todos}/>
+        <List todos={todos} setTodos={setTodos}/>
     </div>
   )
 }
