@@ -7,6 +7,7 @@ const AddTodo = ({inputs, setInput, setTodos,setFilter,editing}) => {
 
     const handleAdd = (e) =>{
         e.preventDefault();
+        if(inputs.len>1){
         setTodos((prev)=>{
             return[
                 ...prev,
@@ -16,10 +17,13 @@ const AddTodo = ({inputs, setInput, setTodos,setFilter,editing}) => {
                     complete:false
                 }
             ]
-        });
+        });}
+        else{
+            return;
+        }
         setInput("");
     }
-    //console.log(filter);
+
 
     return (
         <div className='center-div'>
@@ -30,7 +34,7 @@ const AddTodo = ({inputs, setInput, setTodos,setFilter,editing}) => {
                 <button className="dropbtn">Filter</button>
                 <div className="dropdown-content">
                     <option value="all" onClick={(e)=> {setFilter(e.target.value)}}>All</option>
-                    <option value="complete" onClick={(e)=> {setFilter(e.target.value)}}>Completed</option>
+                    <option value="completed" onClick={(e)=> {setFilter(e.target.value)}}>Completed</option>
                     <option value="incomplete" onClick={(e)=> {setFilter(e.target.value)}}>Todo</option>
                 </div>
             </div>

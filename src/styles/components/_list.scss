@@ -1,7 +1,9 @@
 .transparent_input {
+    font-size: 24px;
     border-style: none;
     background-color: transparent;
 }
+
 .completed {
     @extend .transparent_input;
     text-decoration: line-through;
@@ -9,4 +11,16 @@
 }
 .incomplete{
     @extend .transparent_input;
+}
+.list{
+    margin: 20px 0px;
+    background-color: $--dark-ternery;
+    padding: 10px 20px;
+}
+
+input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
 }

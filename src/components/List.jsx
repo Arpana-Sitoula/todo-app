@@ -66,14 +66,14 @@ const List = ({ inputs,setInput, todos, setTodos, filter,setFilteredTodos,filter
         <input type='checkbox'  checked={task.complete ? true : false} onChange={(e) => handleCheck(e, task.id)} name={task.title} />
         <input className = {task.complete? "completed": "incomplete"} readOnly={editing==task.id ? false:true} value={editing==task.id? inputs:task.title} onChange={(e)=> setInput(e.target.value)}/>
       </label>
-      <button onClick={() => deleteTodo(task.id)}>Delete</button>
-      <button onClick={() => {editing? handleUpdate():handleEdit(task.id,task.title)}}>{editing==task.id? "Save":"Edit"}</button>
+      <button className='button' onClick={() => deleteTodo(task.id)}>Delete</button>
+      <button className='button' onClick={() => {editing? handleUpdate():handleEdit(task.id,task.title)}}>{editing==task.id? "Save":"Edit"}</button>
     </div>
   });
 
   return (
     <div className='center-div'>
-      <div className='item'>
+      <div className='list'>
         {todoItems}
       </div>
     </div>

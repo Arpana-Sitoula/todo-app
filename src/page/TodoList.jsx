@@ -11,7 +11,7 @@ const TodoList = () => {
   const [editing, setEditing] = useState(null);
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1 className='center-div'>Todo List</h1>
       <AddTodo
         inputs={inputs}
         setInput={setInput}
