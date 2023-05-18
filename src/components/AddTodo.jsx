@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import uuid from 'react-uuid';
 
-const AddTodo = ({setTodos,setFilter,filter}) => {
-    const [inputs, setInput] = useState("");
+const AddTodo = ({inputs, setInput, setTodos,setFilter,editing}) => {
+   
    
 
     const handleAdd = (e) =>{
@@ -24,13 +24,13 @@ const AddTodo = ({setTodos,setFilter,filter}) => {
     return (
         <div className='center-div'>
             <form className='filter' onSubmit={handleAdd}>
-            <input type='text' value={inputs} onChange={(e)=> setInput(e.target.value)}/>
+            <input type='text' value={editing? "":inputs} onChange={(e)=> setInput(e.target.value)}/>
             <button type='submit' className='add'>+</button>
             <div className="dropdown">
                 <button className="dropbtn">Filter</button>
                 <div className="dropdown-content">
                     <option value="all" onClick={(e)=> {setFilter(e.target.value)}}>All</option>
-                    <option value="completed" onClick={(e)=> {setFilter(e.target.value)}}>Completed</option>
+                    <option value="complete" onClick={(e)=> {setFilter(e.target.value)}}>Completed</option>
                     <option value="incomplete" onClick={(e)=> {setFilter(e.target.value)}}>Todo</option>
                 </div>
             </div>
