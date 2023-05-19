@@ -7,7 +7,7 @@ const AddTodo = ({inputs, setInput, setTodos,setFilter,editing}) => {
 
     const handleAdd = (e) =>{
         e.preventDefault();
-        if(inputs.len>1){
+  
         setTodos((prev)=>{
             return[
                 ...prev,
@@ -17,10 +17,8 @@ const AddTodo = ({inputs, setInput, setTodos,setFilter,editing}) => {
                     complete:false
                 }
             ]
-        });}
-        else{
-            return;
-        }
+        });
+    
         setInput("");
     }
 
