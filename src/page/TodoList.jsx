@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import AddTodo from '../components/AddTodo'
 import List from '../components/List'
+import Page from '../components/Page'
+
 
 
 const TodoList = () => {
@@ -9,6 +11,7 @@ const TodoList = () => {
   const [filter, setFilter] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [editing, setEditing] = useState(null);
+
   return (
     <div>
       <h1 className='center-div'>Todo List</h1>
@@ -17,7 +20,8 @@ const TodoList = () => {
         setInput={setInput}
         setTodos={setTodos}
         setFilter={setFilter}
-        editing={editing} />
+        editing={editing} 
+        />
 
       <List
         inputs={inputs}
@@ -29,6 +33,7 @@ const TodoList = () => {
         setFilteredTodos={setFilteredTodos}
         editing={editing}
         setEditing={setEditing} />
+
     </div>
   )
 }
