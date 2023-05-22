@@ -1,25 +1,32 @@
 import React, {useState, useEffect} from 'react'
 
-const Page = ({todoItems,setFilteredTodos}) => {
+const Page = ({filteredTodos, displayTodos, setDisplayTodos}) => {
   const [page, setPage] = useState(1);
 
+  const startIndex = (page - 1) * 6;
+  console.log("start Index"+startIndex);
+  const endIndex = startIndex + 6;
+  console.log("End Index"+endIndex);
+
   useEffect(() => {
-    setFilteredTodos(todoItems.slice(1,6));
-  }, [page,todoItems]);
+   setDisplayTodos(filteredTodos.slice(startIndex,endIndex));
+
+  }, [page,filteredTodos]);
 
 
-  const handlePrev = () =>{
+  const handlePrev = async() =>{
     setPage(page-1);
   }
-  const handleNext = () =>{
+  const handleNext = async() =>{
     setPage(page+1);
   }
-  const count = 1;
+
+  console.log("diff"+(filteredTodos.length - displayTodos.length))
   return (
     <div className='center-div'>
       <div>
         <button className='button' onClick={handlePrev}  disabled={page <= 1}>&lt;&lt;</button>
-        <button className='button' onClick={handleNext}>&gt;&gt;</button>
+        <button className='button' onClick={handleNext} disabled={endIndex >= filteredTodos.length}>&gt;&gt;</button>
       </div>
     </div>
   )

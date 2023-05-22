@@ -4,7 +4,7 @@ import Page from './Page';
 
 const List = ({ inputs, setInput, todos, setTodos, filter, setFilteredTodos, filteredTodos, setEditing, editing }) => {
 
-  
+ const [displayTodos, setDisplayTodos] = useState([]); 
 
   // const listRef = useRef(null);
 
@@ -70,7 +70,7 @@ const List = ({ inputs, setInput, todos, setTodos, filter, setFilteredTodos, fil
     setInput("");
   }
 
-  const todoItems = filteredTodos.map((task) => {
+  const todoItems = displayTodos.map((task) => {
     return <div key={task.id} className='item'>
       <label htmlFor={task.title} id={task.id}>
         <input type='checkbox' checked={task.complete ? true : false} onChange={(e) => handleCheck(e, task.id)} name={task.title} />
@@ -81,21 +81,13 @@ const List = ({ inputs, setInput, todos, setTodos, filter, setFilteredTodos, fil
     </div>
   });
 
-  const countTodos = todoItems.length;
-  // if(countTodos>6){
-  //   setPage(2);
-  //   console.log(page);
-  // }
-  console.log(todoItems.length)
-
   return (
     <div className='center-div'>
       <div>
       <div className='list'>
         {todoItems}
-        <div>{todoItems.length}</div>
       </div>
-      <Page todoItems={todoItems} setFilteredTodos={setFilteredTodos}/>
+      <Page filteredTodos={filteredTodos} displayTodos={displayTodos} setDisplayTodos={setDisplayTodos}/>
       </div>
     </div>
   )
