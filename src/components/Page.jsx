@@ -24,10 +24,11 @@ const Page = ({filteredTodos, displayTodos, setDisplayTodos}) => {
   console.log("diff"+(filteredTodos.length - displayTodos.length))
   return (
     <div className='center-div'>
+      {(filteredTodos.length > 6) &&
       <div>
         <button className='button' onClick={handlePrev}  disabled={page <= 1}>&lt;&lt;</button>
         <button className='button' onClick={handleNext} disabled={endIndex >= filteredTodos.length}>&gt;&gt;</button>
-      </div>
+      </div>}
     </div>
   )
 }

@@ -4,9 +4,8 @@ import Page from './Page';
 
 const List = ({ inputs, setInput, todos, setTodos, filter, setFilteredTodos, filteredTodos, setEditing, editing }) => {
 
- const [displayTodos, setDisplayTodos] = useState([]); 
+  const [displayTodos, setDisplayTodos] = useState([]);
 
-  // const listRef = useRef(null);
 
   const deleteTodo = (id) => {
     const remainingTodos = todos.filter((todo) => {
@@ -48,12 +47,6 @@ const List = ({ inputs, setInput, todos, setTodos, filter, setFilteredTodos, fil
   const handleEdit = (id, title) => {
     setEditing(id);
     setInput(title);
-    // const temp = todos.filter((todo) => {
-    //   return todo.id == id;
-    // });
-    // listRef.current = temp;
-    // console.log(listRef.current);
-    // listRef.current.focus();
   }
 
   const handleUpdate = () => {
@@ -74,7 +67,7 @@ const List = ({ inputs, setInput, todos, setTodos, filter, setFilteredTodos, fil
     return <div key={task.id} className='item'>
       <label htmlFor={task.title} id={task.id}>
         <input type='checkbox' checked={task.complete ? true : false} onChange={(e) => handleCheck(e, task.id)} name={task.title} />
-        <input className={task.complete ? "completed" : "incomplete"}  readOnly={editing == task.id ? false : true} value={editing == task.id ? inputs : task.title} onChange={(e) => setInput(e.target.value)} />
+        <input className={task.complete ? "completed" : "incomplete"} readOnly={editing == task.id ? false : true} value={editing == task.id ? inputs : task.title} onChange={(e) => setInput(e.target.value)} />
       </label>
       <button className='button' onClick={() => deleteTodo(task.id)}>Delete</button>
       <button className='button' onClick={() => { editing ? handleUpdate() : handleEdit(task.id, task.title) }}>{editing == task.id ? "Save" : "Edit"}</button>
@@ -84,10 +77,10 @@ const List = ({ inputs, setInput, todos, setTodos, filter, setFilteredTodos, fil
   return (
     <div className='center-div'>
       <div>
-      <div className='list'>
-        {todoItems}
-      </div>
-      <Page filteredTodos={filteredTodos} displayTodos={displayTodos} setDisplayTodos={setDisplayTodos}/>
+        <div className='list'>
+          {todoItems}
+        </div>
+        <Page filteredTodos={filteredTodos} displayTodos={displayTodos} setDisplayTodos={setDisplayTodos} />
       </div>
     </div>
   )
